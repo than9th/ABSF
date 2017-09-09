@@ -1,3 +1,4 @@
+
 # encoding: utf-8
 """
 @ Author: Kunkai Su 
@@ -60,3 +61,56 @@ def getAnswer(answerNumber):
 # fortune = getAnswer(r)
 # print(fortune)
 print(getAnswer(random.randint(1, 9)))
+
+# Global and local
+# 1
+def spam():
+    eggs = 31337
+spam()
+print(eggs)
+
+# 2
+def spam():
+    eggs =100
+    bacon()
+    print(eggs)
+
+def bacon():
+    ham = 101
+    eggs = 0
+
+spam()
+
+# 3
+def spam():
+    print(eggs)
+eggs = 42
+spam()
+print(eggs)
+
+# 4
+def spam():
+    eggs='spam local'
+    print(eggs)
+
+def bacon():
+    eggs = 'bacon local'
+    print(eggs)
+    spam()
+    print(eggs)
+
+eggs = 'global'
+bacon()
+print(eggs)
+
+
+catNames = []
+while True:
+    print('Enter the name of cat ' + str(len(catNames) + 1)  +  ' (Or enter nothing to stop.):')
+    name = input()
+    if name == '':
+        break
+    catNames = catNames +[name]
+print ('The cat names are: ')
+for name in catNames:
+    print(' '+ name)
